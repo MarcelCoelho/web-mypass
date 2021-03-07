@@ -10,10 +10,10 @@ interface ContainerProps {
 
 export const Container = styled.div<ContainerProps>`
   background: #fff;
-  border-radius: 10px;
+  border-radius: 0.8rem;
   border: 2px solid #232129;
-  height: 70px;
-  padding: 16px;
+  height: 4rem;
+  padding: 1rem;
   width: 100%;
   color: #666360;
 
@@ -21,7 +21,7 @@ export const Container = styled.div<ContainerProps>`
   align-items: center;
 
   & + div {
-    margin-top: 8px;
+    margin-top: 0.5rem;
   }
 
   ${(props) =>
@@ -44,7 +44,7 @@ export const Container = styled.div<ContainerProps>`
     `}
 
   input {
-    font-size: 20px;
+    font-size: 1rem;
     flex: 1%;
     background: transparent;
     border: 0ch;
@@ -56,13 +56,13 @@ export const Container = styled.div<ContainerProps>`
   }
 
   svg {
-    margin-right: 16px;
+    margin-right: 1rem;
   }
 `;
 
 export const Error = styled(Tooltip)`
-  height: 25px;
-  margin-left: 16px;
+  height: 1.8rem;
+  margin-left: 1rem;
 
   svg {
     margin: 0;

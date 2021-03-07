@@ -2,35 +2,51 @@ import styled, { keyframes } from 'styled-components';
 import { shade } from 'polished';
 
 export const Container = styled.div`
-  width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+
+  margin: 0 auto;
+
+  max-width: 920px;
   height: 100vh;
-  align-items: center;
+
+  align-content: flex-start;
   justify-content: center;
-  align-content: center;
+
+  .form {
+    .titulo {
+      display: grid;
+      grid-template-rows: 1fr;
+
+      span:first-child {
+        grid-row: 1;
+        font-size: 1.5rem;
+        font-weight: 500;
+        align-self: flex-end;
+        justify-self: start;
+        margin-bottom: 3rem;
+      }
+    }
+  }
 `;
 
-export const ContentFormImage = styled.div`
-  width: 750px;
+/*export const ContentFormImage = styled.div`
+  width: 46rem;
   display: flex;
 
-   img {
-      background: transparent;
-      width: 70px;
-      height: 70px;
-      border-width: 3px;
-      border-style: solid;
-      border-color: #03a84d;
-      justify-content: center;
-      align-content: center;
-      align-items: center;
-      align-self: center;
-      margin-left: 5%;
-      border-radius: 50%;
-   }
+  img {
+    background: transparent;
+    width: 4rem;
+    height: 4rem;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #03a84d;
 
+    margin-left: 5%;
+    border-radius: 50%;
+  }
 `;
-
+*/
 const appearFromRight = keyframes`
 from {
   opacity:0;
@@ -43,26 +59,16 @@ to{
 `;
 
 export const AnimationContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
   animation: ${appearFromRight} 1s;
 
   form {
-    margin: 80px 0;
-    width: 500px;
     text-align: center;
-
-    h1 {
-      margin-bottom: 24px;
-    }
+    width: 32rem;
 
     a {
       color: #f4ede8;
       display: block;
-      margin-top: 24px;
+      margin-top: 1.5rem;
       text-decoration: none;
       transition: color 0.2s;
 
@@ -72,22 +78,21 @@ export const AnimationContainer = styled.div`
     }
 
     > a {
-    color: #666360;
-    display: block;
-    margin-top: 32px;
-    text-decoration: none;
-    font-size: 22px;
-    font-family: Roboto, sans-serif;
-    transition: color 0.2s;
+      color: #666360;
+      display: block;
+      margin-top: 2rem;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-family: Roboto, sans-serif;
+      transition: color 0.2s;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
 
-    &:hover {
-      color: ${shade(0.2, '#000')};
+      &:hover {
+        color: ${shade(0.2, '#000')};
+      }
     }
-  }
-
   }
 `;

@@ -7,8 +7,6 @@ import SignUp from '../pages/SignUp';
 import Dashboard from '../pages/Dashboard';
 import Register from '../pages/Register';
 
-import Card from '../pages/Card';
-
 import Route from './Route';
 
 const Routes: React.FC = () => (
@@ -18,6 +16,6 @@ const Routes: React.FC = () => (
     <Route path="/Dashboard" component={Dashboard} isPrivate />
     <Route path="/Register/:id+" component={Register} isPrivate />
   </Switch>
-)
+);
 
 export default Routes;

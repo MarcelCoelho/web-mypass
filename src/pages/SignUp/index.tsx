@@ -14,7 +14,9 @@ import getValidationErrors from '../../utils/getValidationErros';
 import Input from '../../components/input';
 import Button from '../../components/button';
 
-import { Container, AnimationContainer, ContentFormImage } from './styles';
+import { Logo } from '../../components/Logo';
+
+import { Container, AnimationContainer } from './styles';
 
 interface SignUpFormData {
   name: string;
@@ -74,49 +76,52 @@ const SignUp: React.FC = () => {
   );
 
   return (
-    <>
-      <Container>
+    <Container>
+      <Logo />
+
+      <div className="form">
+        <div className="titulo">
+          <span>Preencha os campos abaixo para realizar seu cadastro!</span>
+        </div>
+
         <AnimationContainer>
+          {/*} <ContentFormImage>*/}
+          <Form ref={formRef} onSubmit={handleSubmit}>
+            <Input
+              parent="SignUp"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              icon={FiUser}
+              placeholder="Nome"
+            />
+            <Input name="email" icon={FiMail} placeholder="E-mail" />
+            <Input
+              name="url_photo"
+              value={url_photo}
+              onChange={(e) => setPhoto(e.target.value)}
+              icon={FiCamera}
+              placeholder="Url Photo"
+            />
+            <Input
+              name="password"
+              icon={FiLock}
+              type="password"
+              placeholder="Senha"
+            />
+            <Button type="submit">Cadastrar</Button>
 
-          <ContentFormImage>
-            <Form ref={formRef} onSubmit={handleSubmit}>
-              <h1>Faça seu cadastro</h1>
-              <Input parent="SignUp"
-                name="name"
-                value={name}
-                onChange={e => setName(e.target.value)}
-                icon={FiUser}
-                placeholder="Nome" />
-              <Input name="email" icon={FiMail} placeholder="E-mail" />
-              <Input name="url_photo"
-                value={url_photo}
-                onChange={e => setPhoto(e.target.value)}
-                icon={FiCamera}
-                placeholder="Url Photo" />
-              <Input
-                name="password"
-                icon={FiLock}
-                type="password"
-                placeholder="Senha"
-              />
-              <Button type="submit">Cadastrar</Button>
+            <Link to="/">
+              <FiArrowLeft size={32} />
+              Voltar
+            </Link>
+          </Form>
 
-              <Link to="/">
-                <FiArrowLeft size={32} />
-                Voltar
-              </Link>
-
-            </Form>
-
-            {url_photo && <img src={url_photo} alt={name} />}
-
-          </ContentFormImage>
-
-
-
+          {/* {url_photo && <img src={url_photo} alt={name} />} */}
+          {/* </ContentFormImage>*/}
         </AnimationContainer>
-      </Container>
-    </>
+      </div>
+    </Container>
   );
 };
 

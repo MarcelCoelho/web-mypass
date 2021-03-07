@@ -13,7 +13,9 @@ import getValidationErrors from '../../utils/getValidationErros';
 import Input from '../../components/input';
 import Button from '../../components/button';
 
-import { Container, Content, AnimationContainer } from './styles';
+import { Logo } from '../../components/Logo';
+
+import { Container, AnimationContainer } from './styles';
 
 interface SignInFormData {
   email: string;
@@ -33,8 +35,7 @@ const SignIn: React.FC = () => {
         formRef.current?.setErrors({});
 
         const schema = Yup.object().shape({
-          email: Yup.string()
-            .required('E-mail obrigatório'),
+          email: Yup.string().required('E-mail obrigatório'),
           password: Yup.string().required('Senha obrigatória'),
         });
 
@@ -48,7 +49,6 @@ const SignIn: React.FC = () => {
         });
 
         history.push('/dashboard');
-
       } catch (err) {
         console.log(err);
         if (err instanceof Yup.ValidationError) {
@@ -60,7 +60,8 @@ const SignIn: React.FC = () => {
         addToast({
           type: 'error',
           title: 'Erro no login!',
-          description: 'Ocorreu um erro ao realizar login, tente novamente.' + err,
+          description:
+            'Ocorreu um erro ao realizar login, tente novamente.' + err,
         });
       }
     },
@@ -69,12 +70,20 @@ const SignIn: React.FC = () => {
 
   return (
     <Container>
-
-      <Content>
+      <Logo />
+      <div className="form">
+        <div className="titulo">
+          <span>Bem vindo(a)!</span>
+          <span>Informe suas credenciais</span>
+        </div>
         <AnimationContainer>
           <Form ref={formRef} onSubmit={handleSubmit}>
-            <h1>Informe suas credenciais</h1>
-            <Input parent="SignIn" name="email" icon={FiMail} placeholder="E-mail" />
+            <Input
+              parent="SignIn"
+              name="email"
+              icon={FiMail}
+              placeholder="E-mail"
+            />
             <Input
               name="password"
               icon={FiLock}
@@ -82,15 +91,14 @@ const SignIn: React.FC = () => {
               placeholder="Senha"
             />
             <Button type="submit">Login</Button>
+
+            <Link to="/SignUp">
+              <FiArrowRight size={32} />
+              Clique aqui para se cadastrar!
+            </Link>
           </Form>
-
-          <Link to="/SignUp">
-            <FiArrowRight size={32} />
-            Clique aqui para se cadastrar!
-          </Link>
-
         </AnimationContainer>
-      </Content>
+      </div>
     </Container>
   );
 };
