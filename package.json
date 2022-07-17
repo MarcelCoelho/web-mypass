@@ -18,7 +18,7 @@
     "add": "^2.0.6",
     "axios": "^0.19.2",
     "cryptojs": "^2.5.3",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "polished": "^3.5.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
